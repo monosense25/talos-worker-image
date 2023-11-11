@@ -96,7 +96,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: talos-iso
-          path: /out/metal-worker-amd64.iso
+          path: /out/metal-amd64.iso
           if-no-files-found: error
           retention-days: 1
 
@@ -118,7 +118,7 @@ jobs:
           tag_name: ${{ needs.check-releases.outputs.talosReleaseTag }}
           body: ${{ needs.check-releases.outputs.talosReleaseBody }}
           files: |
-            /tmp/talos-build-assets/metal-worker-amd64.iso
+            /tmp/talos-build-assets/metal-amd64.iso
 
   push-container-image:
     needs: [ check-releases, build-boot-assets ]
